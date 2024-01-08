@@ -1,7 +1,13 @@
 const express= require("express");
 const port=8000||process.env.port;
+const cors=require("cors");
+const bodyParser=require("body-parser");
 const app=express();
 const mysql = require("mysql2");
+
+app.use(cors());
+// parse application/json
+app.use(bodyParser.json());
 
 const mysqlconnection=mysql.createPool({
     host : "sql.freedb.tech",   
